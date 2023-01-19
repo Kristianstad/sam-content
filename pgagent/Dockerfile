@@ -5,16 +5,16 @@
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.17}
 ARG IMAGETYPE="content"
-ARG PGAGENTVERSION="4.2.1"
+ARG PGAGENT_VERSION=${PGAGENT_VERSION:-4.2.1}
 ARG HUBPROFILE="huggla"
 ARG HUBREPO="pgagent"
-ARG HUBVERSION="$PGAGENTVERSION"
+ARG HUBVERSION=$PGAGENT_VERSION
 ARG BASEIMAGE="$SaM_REPO:busybox-$ALPINE_VERSION"
 ARG MAKEDIRS="\$DESTDIR/usr/share/postgresql/extension \$DESTDIR/usr/bin"
-ARG DOWNLOADS="https://ftp.postgresql.org/pub/pgadmin/pgagent/pgAgent-$PGAGENTVERSION-Source.tar.gz"
+ARG DOWNLOADS="https://ftp.postgresql.org/pub/pgadmin/pgagent/pgAgent-$PGAGENT_VERSION-Source.tar.gz"
 ARG BUILDDEPS="postgresql-dev libc-dev boost1.80-dev ssl_client"
 ARG BUILDCMDS=\
-"   cd pgAgent-$PGAGENTVERSION-Source "\
+"   cd pgAgent-$PGAGENT_VERSION-Source "\
 '&& cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_C_FLAGS="$CFLAGS" '\
 '&& make '\
 '&& cp -a *.sql *.control sql/* $DESTDIR/usr/share/postgresql/extension/ '\
