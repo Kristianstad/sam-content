@@ -13,8 +13,8 @@ ARG HUBREPO="libjpegturbo"
 ARG HUBVERSION="$LIBJPEGTURBO_VERSION"
 ARG BASEIMAGE="$SaM_REPO:busybox-$ALPINE_VERSION"
 ARG DOWNLOADS="https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-$LIBJPEGTURBO_VERSION.tar.gz"
-ARG BUILDDEPS="nasm openjdk11"
-ARG JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+ARG BUILDDEPS="nasm openjdk17-jdk"
+ARG JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 ARG BUILDCMDS=\
 "   cd libjpeg-turbo-$LIBJPEGTURBO_VERSION "\
 '&& cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_C_FLAGS="$CFLAGS" -DWITH_JAVA=1 '\
