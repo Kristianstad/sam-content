@@ -8,13 +8,14 @@ ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.17}
 ARG IMAGETYPE="content"
 ARG LIBJPEGTURBO_VERSION=${LIBJPEGTURBO_VERSION:-4.2.1}
+ARG OPENJDK_VERSION="17"
 ARG HUBPROFILE="kristianstad"
 ARG HUBREPO="libjpegturbo"
 ARG HUBVERSION="$LIBJPEGTURBO_VERSION"
 ARG BASEIMAGE="$SaM_REPO:busybox-$ALPINE_VERSION"
 ARG DOWNLOADS="https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-$LIBJPEGTURBO_VERSION.tar.gz"
-ARG BUILDDEPS="nasm openjdk17-jdk"
-ARG JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+ARG BUILDDEPS="nasm openjdk$OPENJDK_VERSION-jdk"
+ARG JAVA_HOME="/usr/lib/jvm/java-$OPENJDK_VERSION-openjdk"
 ARG BUILDCMDS=\
 "   cd libjpeg-turbo-$LIBJPEGTURBO_VERSION "\
 '&& cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_C_FLAGS="$CFLAGS" -DWITH_JAVA=1 '\
