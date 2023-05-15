@@ -3,9 +3,9 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-ARG ALPINE_VERSION=${ALPINE_VERSION:-3.17}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.18}
 ARG IMAGETYPE="content"
-ARG COREUTILS_VERSION=${COREUTILS_VERSION:-9.1}
+ARG COREUTILS_VERSION=${COREUTILS_VERSION:-9.3}
 ARG HUBPROFILE="kristianstad"
 ARG HUBREPO="coreutils"
 ARG HUBVERSION="$COREUTILS_VERSION"
