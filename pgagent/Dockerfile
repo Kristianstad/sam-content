@@ -13,7 +13,7 @@ ARG HUBVERSION=$PGAGENT_VERSION
 ARG BASEIMAGE="$SaM_REPO:busybox-$ALPINE_VERSION"
 ARG MAKEDIRS="\$DESTDIR/usr/share/postgresql/extension \$DESTDIR/usr/bin"
 ARG DOWNLOADS="https://ftp.postgresql.org/pub/pgadmin/pgagent/pgAgent-$PGAGENT_VERSION-Source.tar.gz"
-ARG BUILDDEPS="postgresql-dev libc-dev boost1.80-dev ssl_client"
+ARG BUILDDEPS="postgresql-dev libc-dev boost1.82-dev ssl_client"
 ARG BUILDCMDS=\
 "   cd pgAgent-$PGAGENT_VERSION-Source "\
 '&& cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_C_FLAGS="$CFLAGS" '\
