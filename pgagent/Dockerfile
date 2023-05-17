@@ -3,9 +3,9 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-# NOTE! ALPINE_VERSION is set in .github/workflows/docker-image-pgagent.yml
 ARG ALPINE_VERSION=${ALPINE_VERSION:-3.18}
 ARG IMAGETYPE="content"
+# NOTE! PGAGENT_VERSION is set in .github/workflows/docker-image-pgagent.yml
 ARG PGAGENT_VERSION=${PGAGENT_VERSION:-4.2.1}
 ARG HUBPROFILE="kristianstad"
 ARG HUBREPO="pgagent"
