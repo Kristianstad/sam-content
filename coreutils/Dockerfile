@@ -3,10 +3,10 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-ARG ALPINE_VERSION=${ALPINE_VERSION:-3.20}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.21}
 ARG IMAGETYPE="content"
 # NOTE! COREUTILS_VERSION is set in .github/workflows/docker-image-coreutils.yml
-ARG COREUTILS_VERSION=${COREUTILS_VERSION:-9.5}
+ARG COREUTILS_VERSION=${COREUTILS_VERSION:-9.6}
 ARG HUBPROFILE="kristianstad"
 ARG HUBREPO="coreutils"
 ARG HUBVERSION="$COREUTILS_VERSION"
