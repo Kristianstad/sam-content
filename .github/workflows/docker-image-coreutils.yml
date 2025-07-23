@@ -5,7 +5,7 @@ on: workflow_dispatch
 env:
   REGISTRY: ghcr.io
   CONTEXT: coreutils
-  COREUTILS_VERSION: 9.6
+  COREUTILS_VERSION: 9.7
 
 jobs:
   build-and-push-image:
