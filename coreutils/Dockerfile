@@ -3,10 +3,10 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-ARG ALPINE_VERSION=${ALPINE_VERSION:-3.22}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.23}
 ARG IMAGETYPE="content"
 # NOTE! COREUTILS_VERSION is set in .github/workflows/docker-image-coreutils.yml
-ARG COREUTILS_VERSION=${COREUTILS_VERSION:-9.7}
+ARG COREUTILS_VERSION=${COREUTILS_VERSION:-9.11}
 ARG HUBPROFILE="kristianstad"
 ARG HUBREPO="coreutils"
 ARG HUBVERSION="$COREUTILS_VERSION"
@@ -20,21 +20,21 @@ ARG BUILDCMDS=\
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
-FROM ${CONTENTIMAGE1:-scratch} as content1
-FROM ${CONTENTIMAGE2:-scratch} as content2
-FROM ${CONTENTIMAGE3:-scratch} as content3
-FROM ${CONTENTIMAGE4:-scratch} as content4
-FROM ${CONTENTIMAGE5:-scratch} as content5
-FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} as base
-FROM ${INITIMAGE:-scratch} as init
+FROM ${CONTENTIMAGE1:-scratch} AS content1
+FROM ${CONTENTIMAGE2:-scratch} AS content2
+FROM ${CONTENTIMAGE3:-scratch} AS content3
+FROM ${CONTENTIMAGE4:-scratch} AS content4
+FROM ${CONTENTIMAGE5:-scratch} AS content5
+FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} AS base
+FROM ${INITIMAGE:-scratch} AS init
 # Generic template (don't edit) </END>
 
 # =========================================================================
 # Build
 # =========================================================================
 # Generic template (don't edit) <BEGIN>
-FROM ${BUILDIMAGE:-$SaM_REPO:build-$ALPINE_VERSION} as build
-FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} as final
+FROM ${BUILDIMAGE:-$SaM_REPO:build-$ALPINE_VERSION} AS build
+FROM ${BASEIMAGE:-$SaM_REPO:base-$ALPINE_VERSION} AS final
 COPY --from=build /finalfs /
 # Generic template (don't edit) </END>
 
